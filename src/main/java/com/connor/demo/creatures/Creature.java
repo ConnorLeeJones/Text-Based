@@ -5,7 +5,7 @@ import java.util.HashMap;
 public abstract class Creature {
 
     private String name;
-    private HashMap<String, Integer> stats;
+    private HashMap<Stats, Integer> stats;
     private HashMap<String, Integer> inventory;
 
     public Creature(){
@@ -20,22 +20,21 @@ public abstract class Creature {
         this.inventory = initInventory();
     }
 
-    private static HashMap<String, Integer> initStats(){
-        HashMap<String, Integer> newStats = new HashMap<>();
-        newStats.put("Strength", 10);
-        newStats.put("Defense", 10);
-        newStats.put("Mana", 10);
-        newStats.put("Speed", 10);
-        newStats.put("Stealth", 10);
-        newStats.put("Accuracy", 10);
+    private static HashMap<Stats, Integer> initStats(){
+        HashMap<Stats, Integer> newStats = new HashMap<>();
+        newStats.put(Stats.STRENGTH, 10);
+        newStats.put(Stats.DEFENSE, 10);
+        newStats.put(Stats.MANA, 10);
+        newStats.put(Stats.SPEED, 10);
+        newStats.put(Stats.ACCURACY, 10);
 
-        newStats.put("HP", 100);
-        newStats.put("MP", 100);
-        newStats.put("XP", 0);
-        newStats.put("MaxHP", 100);
-        newStats.put("MaxMP", 100);
-        newStats.put("MaxXP", 100);
-        newStats.put("Level", 1);
+        newStats.put(Stats.HP, 100);
+        newStats.put(Stats.MP, 100);
+        newStats.put(Stats.XP, 0);
+        newStats.put(Stats.MAX_HP, 100);
+        newStats.put(Stats.MAX_MP, 100);
+        newStats.put(Stats.MAX_XP, 100);
+        newStats.put(Stats.LEVEL, 1);
         return newStats;
     }
 
@@ -46,7 +45,7 @@ public abstract class Creature {
     }
 
 
-    protected void IncreaseStat(String stat, Integer value){
+    protected void IncreaseStat(Stats stat, Integer value){
         this.stats.merge(stat, value, Integer::sum);
     }
 
@@ -59,11 +58,11 @@ public abstract class Creature {
         this.name = name;
     }
 
-    public HashMap<String, Integer> getStats() {
+    public HashMap<Stats, Integer> getStats() {
         return stats;
     }
 
-    public void setStats(HashMap<String, Integer> stats) {
+    public void setStats(HashMap<Stats, Integer> stats) {
         this.stats = stats;
     }
 
