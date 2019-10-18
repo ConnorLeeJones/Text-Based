@@ -45,7 +45,7 @@ public abstract class Creature {
     }
 
 
-    protected void IncreaseStat(Stats stat, Integer value){
+    protected void increaseStat(Stats stat, Integer value){
         this.stats.merge(stat, value, Integer::sum);
     }
 
@@ -68,6 +68,10 @@ public abstract class Creature {
 
     public HashMap<String, Integer> getInventory() {
         return inventory;
+    }
+
+    public Integer getStat(Stats stat){
+        return this.stats.get(stat);
     }
 
     public void setInventory(HashMap<String, Integer> inventory) {
