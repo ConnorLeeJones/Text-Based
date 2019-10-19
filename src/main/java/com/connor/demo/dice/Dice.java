@@ -1,4 +1,4 @@
-package dice;
+package com.connor.demo.dice;
 
 public class Dice {
 
