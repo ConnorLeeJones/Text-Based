@@ -14,6 +14,12 @@ public abstract class Creature {
         this.inventory = initInventory();
     }
 
+    public Creature(HashMap<Stats, Integer> stats, String name){
+        this.name = name;
+        this.stats = stats;
+        this.inventory = initInventory();
+    }
+
     public Creature(String name){
         this.name = name;
         this.stats = initStats();
