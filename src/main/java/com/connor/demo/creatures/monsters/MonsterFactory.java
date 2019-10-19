@@ -8,19 +8,25 @@ import com.connor.demo.creatures.monsters.types.Wolf;
 import com.connor.demo.creatures.stats.Stats;
 import dice.Dice;
 
+import java.util.ArrayList;
+
 public class MonsterFactory {
 
     private Dice dice = new Dice(100);
-    private Player player;
+    private ArrayList<Player> players;
 
-    public MonsterFactory(Player player){
-        this.player = player;
+    public MonsterFactory(ArrayList<Player> players){
+        this.players = players;
     }
 
 
-    private Monster create(){
+    public Monster create(){
         int roll = dice.roll();
-        int level = player.getStats().get(Stats.LEVEL);
+        int level = 0;
+        for (Player player : players){
+            level += player.getStats().get(Stats.LEVEL);
+        }
+        level /= players.size();
         if (roll <= 25) {
             return new Goblin("Gobo", level);
         } else if (roll <= 50) {

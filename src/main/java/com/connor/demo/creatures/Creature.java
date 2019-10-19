@@ -73,4 +73,13 @@ public abstract class Creature {
     public void setInventory(HashMap<String, Integer> inventory) {
         this.inventory = inventory;
     }
+
+    @Override
+    public String toString() {
+        return "Creature{" +
+                "name='" + name + '\'' +
+                ", stats=" + stats +
+                ", inventory=" + inventory +
+                '}';
+    }
 }

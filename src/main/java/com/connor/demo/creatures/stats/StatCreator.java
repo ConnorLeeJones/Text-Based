@@ -28,17 +28,18 @@ public class StatCreator {
 
 
     public static HashMap<Stats, Integer> newMonsterStats(Integer level){
-        Dice dice = new Dice(10);
+        Dice d10 = new Dice(10);
+        Dice dice = new Dice(10 * level);
         HashMap<Stats, Integer> newStats = new HashMap<>();
-        newStats.put(Stats.STRENGTH, dice.roll() * level / 2);
-        newStats.put(Stats.DEFENSE, dice.roll() * level / 2);
-        newStats.put(Stats.MANA, dice.roll() * level / 2);
-        newStats.put(Stats.SPEED, dice.roll() * level / 2);
-        newStats.put(Stats.ACCURACY, dice.roll() * level / 2);
+        newStats.put(Stats.STRENGTH, d10.roll() * level / 2);
+        newStats.put(Stats.DEFENSE, d10.roll() * level / 2);
+        newStats.put(Stats.MANA, d10.roll() + d10.roll() * level);
+        newStats.put(Stats.SPEED, dice.roll() + dice.roll());
+        newStats.put(Stats.ACCURACY, d10.roll() * level / 2);
 
         newStats.put(Stats.HP, 100 * level / 2);
         newStats.put(Stats.MP, 100 * level / 2);
-        newStats.put(Stats.XP, dice.roll() * level / 2);
+        newStats.put(Stats.XP, d10.roll() * level / 2);
         newStats.put(Stats.MAX_HP, 100 * level / 2);
         newStats.put(Stats.MAX_MP, 100 * level / 2);
         newStats.put(Stats.LEVEL, level);
