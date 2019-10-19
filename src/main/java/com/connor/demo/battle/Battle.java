@@ -9,14 +9,15 @@ import com.connor.demo.creatures.stats.Stats;
 import dice.Dice;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Battle {
 
-    private List<Player> players;
-    private List<Monster> monsters;
+    private ArrayList<Player> players;
+    private ArrayList<Monster> monsters;
     private MonsterFactory monsterFactory;
     private ArrayList<Creature> creatures;
+    private Dice d10 = new Dice(10);
+    private Dice d100 = new Dice(100);
 
     public Battle(){}
 
@@ -31,9 +32,10 @@ public class Battle {
 
 
     public void start(){
-        printCreatures();
+        //printCreatures();
         while (checkWin() && checkLose()){
             for (int i = 0; i < creatures.size(); i++) {
+                printCreatures();
                 Creature creature = creatures.get(i);
                 if (creature instanceof Player){
                     playerTurn(creature);
@@ -45,6 +47,17 @@ public class Battle {
                 }
             }
         }
+    }
+
+
+
+
+    private void dealDamage(Creature currentCreature, Creature opponent){
+        int damage = 0;
+        if (currentCreature.getStat(Stats.ACCURACY) + d10.roll() > opponent.getStat(Stats.DEFENSE)) {
+            damage -= d10.roll() + currentCreature.getStat(Stats.STRENGTH) - opponent.getStat(Stats.DEFENSE);
+        }
+        opponent.alterStat(Stats.HP, -10);
     }
 
 
@@ -68,10 +81,21 @@ public class Battle {
     }
 
     private void playerTurn(Creature player){
-
+        if (checkCreatureHp(player)){
+            dealDamage(player, monsters.get(0));
+        } else {
+            creatures.remove(player);
+            System.out.println(player.getName() + " died.");
+        }
     }
 
     private void monsterTurn(Creature monster){
+        if (checkCreatureHp(monster)){
+            dealDamage(monster, players.get(0));
+        } else {
+            creatures.remove(monster);
+            System.out.println(monster.getName() + " died.");
+        }
 
     }
 
@@ -101,7 +125,7 @@ public class Battle {
 
     private void printCreatures(){
         for (Creature creature : this.creatures){
-            System.out.println(creature.toString());
+            System.out.println(creature.getName() + "   HP: " + creature.getStat(Stats.HP));
         }
     }
 
