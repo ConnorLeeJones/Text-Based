@@ -6,7 +6,7 @@ import com.connor.demo.creatures.monsters.types.Goblin;
 import com.connor.demo.creatures.monsters.types.Hobgoblin;
 import com.connor.demo.creatures.monsters.types.Wolf;
 import com.connor.demo.creatures.stats.Stats;
-import dice.Dice;
+import com.connor.demo.dice.Dice;
 
 import java.util.ArrayList;
 
