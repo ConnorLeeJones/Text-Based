@@ -1,5 +1,8 @@
 package com.connor.demo.creatures;
 
+import com.connor.demo.creatures.stats.StatCreator;
+import com.connor.demo.creatures.stats.Stats;
+
 import java.util.HashMap;
 
 public abstract class Creature {
@@ -14,9 +17,9 @@ public abstract class Creature {
         this.inventory = initInventory();
     }
 
-    public Creature(HashMap<Stats, Integer> stats, String name){
+    public Creature(String name, Integer level){
         this.name = name;
-        this.stats = stats;
+        this.stats = StatCreator.newMonsterStats(level);
         this.inventory = initInventory();
     }
 
@@ -27,21 +30,8 @@ public abstract class Creature {
     }
 
     private static HashMap<Stats, Integer> initStats(){
-        HashMap<Stats, Integer> newStats = new HashMap<>();
-        newStats.put(Stats.STRENGTH, 10);
-        newStats.put(Stats.DEFENSE, 10);
-        newStats.put(Stats.MANA, 10);
-        newStats.put(Stats.SPEED, 10);
-        newStats.put(Stats.ACCURACY, 10);
-
-        newStats.put(Stats.HP, 100);
-        newStats.put(Stats.MP, 100);
-        newStats.put(Stats.XP, 0);
-        newStats.put(Stats.MAX_HP, 100);
-        newStats.put(Stats.MAX_MP, 100);
-        newStats.put(Stats.MAX_XP, 100);
-        newStats.put(Stats.LEVEL, 1);
-        return newStats;
+        StatCreator statCreator = new StatCreator();
+        return  statCreator.newPlayerStats();
     }
 
     private static HashMap<String, Integer> initInventory(){
