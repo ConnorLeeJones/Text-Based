@@ -1,5 +1,6 @@
 package com.connor.demo.creatures;
 
+import com.connor.demo.creatures.stats.Stats;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -111,7 +112,7 @@ public class PlayerTest {
     @Test
     public void increaseStatTest(){
         Player player2 = new Player("Test");
-        player2.increaseStat(Stats.LEVEL, 1);
+        player2.alterStat(Stats.LEVEL, 1);
 
         Integer expected = 2;
         Integer actual = player2.getStat(Stats.LEVEL);

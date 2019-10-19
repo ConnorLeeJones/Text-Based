@@ -1,5 +1,8 @@
 package com.connor.demo.creatures;
 
+import com.connor.demo.creatures.stats.StatCreator;
+import com.connor.demo.creatures.stats.Stats;
+
 import java.util.HashMap;
 
 public abstract class Creature {
@@ -14,6 +17,12 @@ public abstract class Creature {
         this.inventory = initInventory();
     }
 
+    public Creature(String name, Integer level){
+        this.name = name;
+        this.stats = StatCreator.newMonsterStats(level);
+        this.inventory = initInventory();
+    }
+
     public Creature(String name){
         this.name = name;
         this.stats = initStats();
@@ -21,21 +30,8 @@ public abstract class Creature {
     }
 
     private static HashMap<Stats, Integer> initStats(){
-        HashMap<Stats, Integer> newStats = new HashMap<>();
-        newStats.put(Stats.STRENGTH, 10);
-        newStats.put(Stats.DEFENSE, 10);
-        newStats.put(Stats.MANA, 10);
-        newStats.put(Stats.SPEED, 10);
-        newStats.put(Stats.ACCURACY, 10);
-
-        newStats.put(Stats.HP, 100);
-        newStats.put(Stats.MP, 100);
-        newStats.put(Stats.XP, 0);
-        newStats.put(Stats.MAX_HP, 100);
-        newStats.put(Stats.MAX_MP, 100);
-        newStats.put(Stats.MAX_XP, 100);
-        newStats.put(Stats.LEVEL, 1);
-        return newStats;
+        StatCreator statCreator = new StatCreator();
+        return  statCreator.newPlayerStats();
     }
 
     private static HashMap<String, Integer> initInventory(){
@@ -45,7 +41,7 @@ public abstract class Creature {
     }
 
 
-    protected void increaseStat(Stats stat, Integer value){
+    public void alterStat(Stats stat, Integer value){
         this.stats.merge(stat, value, Integer::sum);
     }
 
@@ -74,7 +70,17 @@ public abstract class Creature {
         return this.stats.get(stat);
     }
 
+
     public void setInventory(HashMap<String, Integer> inventory) {
         this.inventory = inventory;
+    }
+
+    @Override
+    public String toString() {
+        return "Creature{" +
+                "name='" + name + '\'' +
+                ", stats=" + stats +
+                ", inventory=" + inventory +
+                '}';
     }
 }
