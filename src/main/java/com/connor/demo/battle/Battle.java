@@ -35,9 +35,10 @@ public class Battle {
         printCreatures();
         //while (!checkWin() && !checkLose()){
             for (int i = 0; i < creatures.size(); i++) {
-                printCreatures();
                 i -= checkAllCreaturesHp();
                 Creature creature = creatures.get(i);
+                printCreatures();
+
 
                 if (checkWin() || checkLose()) {
                     break;
@@ -158,7 +159,7 @@ public class Battle {
 
 
     private ArrayList<Monster> makeMonsters(){
-        Dice dice = new Dice(players.size());
+        Dice dice = new Dice(players.size() * 2);
         int numberOfMonsters = dice.roll();
         ArrayList<Monster> monsters = new ArrayList<>();
         for (int i = 0; i < numberOfMonsters; i++) {
