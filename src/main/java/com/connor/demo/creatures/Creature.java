@@ -2,14 +2,17 @@ package com.connor.demo.creatures;
 
 import com.connor.demo.creatures.stats.StatCreator;
 import com.connor.demo.creatures.stats.Stats;
+import com.connor.demo.spells.Spell;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public abstract class Creature {
 
     private String name;
     private HashMap<Stats, Integer> stats;
     private HashMap<String, Integer> inventory;
+    private HashSet<Spell> spellBook;
 
     public Creature(){
         this.name = "NPC";
@@ -21,6 +24,7 @@ public abstract class Creature {
         this.name = name;
         this.stats = StatCreator.newMonsterStats(level);
         this.inventory = initInventory();
+        this.spellBook = new HashSet<>();
     }
 
     public Creature(String name){
