@@ -1,4 +1,4 @@
-package com.connor.demo.creatures;
+package com.connor.demo.models.creatures;
 
 public class Player extends Creature {
 

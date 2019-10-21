@@ -1,4 +1,4 @@
-package com.connor.demo.dice;
+package com.connor.demo.models.dice;
 
 import org.junit.Assert;
 import org.junit.Test;

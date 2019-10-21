@@ -1,12 +1,12 @@
-package com.connor.demo.battle;
+package com.connor.demo.models.battle;
 
-import com.connor.demo.creatures.Creature;
-import com.connor.demo.creatures.CreatureComparator;
-import com.connor.demo.creatures.monsters.Monster;
-import com.connor.demo.creatures.Player;
-import com.connor.demo.creatures.monsters.MonsterFactory;
-import com.connor.demo.creatures.stats.Stats;
-import com.connor.demo.dice.Dice;
+import com.connor.demo.models.creatures.Creature;
+import com.connor.demo.models.creatures.CreatureComparator;
+import com.connor.demo.models.creatures.monsters.Monster;
+import com.connor.demo.models.creatures.Player;
+import com.connor.demo.models.creatures.monsters.MonsterFactory;
+import com.connor.demo.models.creatures.stats.Stats;
+import com.connor.demo.models.dice.Dice;
 
 import java.util.ArrayList;
 
@@ -35,14 +35,15 @@ public class Battle {
         printCreatures();
         //while (!checkWin() && !checkLose()){
             for (int i = 0; i < creatures.size(); i++) {
-                printCreatures();
                 i -= checkAllCreaturesHp();
                 Creature creature = creatures.get(i);
+                //printCreatures();
+
 
                 if (checkWin() || checkLose()) {
                     break;
-                } else
-                    if (creature instanceof Player){
+                } else if (creature instanceof Player){
+                    printCreatures();
                     playerTurn(creature);
                 } else {
                     monsterTurn(creature);
@@ -72,8 +73,9 @@ public class Battle {
 //        opponent.alterStat(Stats.HP, damage);
 
         int damage = 0;
-        if (d10.roll() >= 1) {
+        if (d10.roll() >= 2) {
             damage -= d10.roll() + currentCreature.getStat(Stats.STRENGTH);
+            System.out.println(currentCreature.getName() + " dealt " + damage * -1 + " damage to " + opponent.getName() + ".");
         } else {
             System.out.println("Miss!");
         }
@@ -89,7 +91,7 @@ public class Battle {
         for (Monster monster : monsters){
             totalMonsterHealth += monster.getStat(Stats.HP);
         }
-        System.out.println("Total Monster Health:" + totalMonsterHealth);
+        //System.out.println("Total Monster Health:" + totalMonsterHealth);
         return totalMonsterHealth <= 0;
     }
 
@@ -98,7 +100,7 @@ public class Battle {
         for (Player player : players){
             totalPlayerHealth += player.getStat(Stats.HP);
         }
-        System.out.println("Total Player Health:" + totalPlayerHealth);
+        //System.out.println("Total Player Health:" + totalPlayerHealth);
         return totalPlayerHealth <= 0;
     }
 
@@ -116,7 +118,6 @@ public class Battle {
         } else {
             System.out.println(monster.getName() + " died.");
         }
-
     }
 
     private boolean checkCreatureHp(Creature creature){
@@ -141,9 +142,8 @@ public class Battle {
         creatures.removeAll(deadMonsters);
         players.removeAll(deadPlayers);
         monsters.removeAll(deadMonsters);
-        System.out.println(deadMonsters);
-        System.out.println(deadPlayers);
-        System.out.println("XXXX");
+        //System.out.println(deadMonsters);
+        //System.out.println(deadPlayers);
         return deadPlayers.size() + deadMonsters.size();
     }
 
@@ -158,7 +158,7 @@ public class Battle {
 
 
     private ArrayList<Monster> makeMonsters(){
-        Dice dice = new Dice(players.size());
+        Dice dice = new Dice(players.size() * 2);
         int numberOfMonsters = dice.roll();
         ArrayList<Monster> monsters = new ArrayList<>();
         for (int i = 0; i < numberOfMonsters; i++) {
@@ -169,9 +169,25 @@ public class Battle {
 
 
     private void printCreatures(){
-        for (Creature creature : this.creatures){
-            System.out.println(creature.getName() + "   HP: " + creature.getStat(Stats.HP) + "/" + creature.getStat(Stats.MAX_HP));
+        String bars = String.format("%50s", "").replace(' ', '=');
+        System.out.println("\n" + "Party" + "\n" + bars);
+        for (Player player : this.players){
+            System.out.printf("%-15s", player.getName());
+            System.out.printf("%-20s", "HP: " + player.getStat(Stats.HP) + "/" + player.getStat(Stats.MAX_HP));
+            System.out.printf("%-15s", "MP: " +  player.getStat(Stats.MP) + "/" + player.getStat(Stats.MAX_MP));
+            System.out.println();
+            //System.out.println("\n" + bars.replace("=", "-"));
         }
+        System.out.println(bars + "\n\n" + "Enemies" + "\n" + bars);
+
+        for (Monster monster : this.monsters){
+            System.out.printf("%-15s", monster.getName());
+            System.out.printf("%-20s", "HP: " + monster.getStat(Stats.HP) + "/" + monster.getStat(Stats.MAX_HP));
+            System.out.printf("%-15s", "MP: " +  monster.getStat(Stats.MP) + "/" + monster.getStat(Stats.MAX_MP));
+            System.out.println();
+            //System.out.println("\n" + bars.replace("=", "-"));
+        }
+        System.out.println(bars);
     }
 
 

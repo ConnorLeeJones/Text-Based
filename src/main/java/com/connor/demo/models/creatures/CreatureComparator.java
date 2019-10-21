@@ -1,6 +1,6 @@
-package com.connor.demo.creatures;
+package com.connor.demo.models.creatures;
 
-import com.connor.demo.creatures.stats.Stats;
+import com.connor.demo.models.creatures.stats.Stats;
 
 import java.util.Comparator;
 

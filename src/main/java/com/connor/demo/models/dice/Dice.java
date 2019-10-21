@@ -1,4 +1,4 @@
-package com.connor.demo.dice;
+package com.connor.demo.models.dice;
 
 public class Dice {
 

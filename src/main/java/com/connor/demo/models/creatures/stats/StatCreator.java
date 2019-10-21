@@ -1,6 +1,6 @@
-package com.connor.demo.creatures.stats;
+package com.connor.demo.models.creatures.stats;
 
-import com.connor.demo.dice.Dice;
+import com.connor.demo.models.dice.Dice;
 
 import java.util.HashMap;
 
