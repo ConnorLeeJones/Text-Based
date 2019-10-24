@@ -1,4 +1,4 @@
-package com.connor.demo.models.game;
+package com.connor.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -13,6 +13,9 @@ public class User {
     @Column(unique = true)
     private String username;
     private String password;
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    private UserProfile userProfile;
 
 
     public User(){}
@@ -54,5 +57,11 @@ public class User {
         this.password = password;
     }
 
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
 
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
 }

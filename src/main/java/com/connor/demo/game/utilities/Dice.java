@@ -1,4 +1,4 @@
-package com.connor.demo.models.dice;
+package com.connor.demo.game.utilities;
 
 public class Dice {
 

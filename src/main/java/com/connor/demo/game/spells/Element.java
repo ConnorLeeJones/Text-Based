@@ -1,4 +1,4 @@
-package com.connor.demo.models.spells;
+package com.connor.demo.game.spells;
 
 public enum Element {
 

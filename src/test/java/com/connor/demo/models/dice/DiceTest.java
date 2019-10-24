@@ -1,5 +1,6 @@
 package com.connor.demo.models.dice;
 
+import com.connor.demo.game.utilities.Dice;
 import org.junit.Assert;
 import org.junit.Test;
 

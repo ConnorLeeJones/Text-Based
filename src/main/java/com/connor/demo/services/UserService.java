@@ -1,6 +1,6 @@
 package com.connor.demo.services;
 
-import com.connor.demo.models.game.User;
+import com.connor.demo.models.User;
 import com.connor.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -16,7 +16,6 @@ public class UserService {
     @Autowired
     public UserService(UserRepository repository){
         this.repository = repository;
-
     }
 
     public Iterable<User> findAll(){
@@ -44,7 +43,6 @@ public class UserService {
             return null;
         }
     }
-
 
 
     private String encryptPassword(String password) {

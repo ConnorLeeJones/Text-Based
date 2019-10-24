@@ -1,8 +1,8 @@
-package com.connor.demo.models.creatures.monsters;
+package com.connor.demo.game.creatures.monsters;
 
-import com.connor.demo.models.creatures.Creature;
-import com.connor.demo.models.creatures.stats.StatCreator;
-import com.connor.demo.models.creatures.stats.Stats;
+import com.connor.demo.game.creatures.StatCreator;
+import com.connor.demo.game.creatures.Stats;
+import com.connor.demo.game.creatures.Creature;
 
 import java.util.HashMap;
 

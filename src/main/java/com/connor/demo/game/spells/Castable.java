@@ -1,4 +1,4 @@
-package com.connor.demo.models.spells.spellList;
+package com.connor.demo.game.spells;
 
 public interface Castable {
 
