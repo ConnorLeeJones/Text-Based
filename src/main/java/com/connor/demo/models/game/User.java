@@ -13,26 +13,20 @@ public class User {
     @Column(unique = true)
     private String username;
     private String password;
-    @JsonManagedReference
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
-    private UserProfile userProfile;
-
 
 
     public User(){}
 
 
-    public User(String username, String password, String firstName, String lastName, UserProfile userProfile) {
+    public User(String username, String password, String firstName, String lastName) {
         this.username = username;
         this.password = password;
-        this.userProfile = userProfile;
     }
 
-    public User(Long id, String username, String password, String firstName, String lastName, UserProfile userProfile) {
+    public User(Long id, String username, String password, String firstName, String lastName) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.userProfile = userProfile;
     }
 
 
@@ -61,11 +55,4 @@ public class User {
     }
 
 
-    public UserProfile getUserProfile() {
-        return userProfile;
-    }
-
-    public void setUserProfile(UserProfile userProfile) {
-        this.userProfile = userProfile;
-    }
 }
