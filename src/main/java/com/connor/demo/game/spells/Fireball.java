@@ -1,7 +1,4 @@
-package com.connor.demo.models.spells.spellList;
-
-import com.connor.demo.models.spells.Element;
-import com.connor.demo.models.spells.Spell;
+package com.connor.demo.game.spells;
 
 public class Fireball extends Spell implements Castable {
 

@@ -1,6 +1,4 @@
-package com.connor.demo.models.creatures.monsters.types;
-
-import com.connor.demo.models.creatures.monsters.Monster;
+package com.connor.demo.game.creatures.monsters;
 
 public class Hobgoblin extends Monster {
 

@@ -1,6 +1,6 @@
 package com.connor.demo.repositories;
 
-import com.connor.demo.models.game.User;
+import com.connor.demo.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

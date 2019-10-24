@@ -1,6 +1,6 @@
 package com.connor.demo.controllers;
 
-import com.connor.demo.models.game.User;
+import com.connor.demo.models.User;
 import com.connor.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

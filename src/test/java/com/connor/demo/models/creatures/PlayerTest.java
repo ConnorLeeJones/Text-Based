@@ -1,6 +1,7 @@
 package com.connor.demo.models.creatures;
 
-import com.connor.demo.models.creatures.stats.Stats;
+import com.connor.demo.game.creatures.Player;
+import com.connor.demo.game.creatures.Stats;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

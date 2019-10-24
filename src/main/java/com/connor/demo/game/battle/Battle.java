@@ -1,12 +1,12 @@
-package com.connor.demo.models.battle;
+package com.connor.demo.game.battle;
 
-import com.connor.demo.models.creatures.Creature;
-import com.connor.demo.models.creatures.CreatureComparator;
-import com.connor.demo.models.creatures.monsters.Monster;
-import com.connor.demo.models.creatures.Player;
-import com.connor.demo.models.creatures.monsters.MonsterFactory;
-import com.connor.demo.models.creatures.stats.Stats;
-import com.connor.demo.models.dice.Dice;
+import com.connor.demo.game.utilities.Dice;
+import com.connor.demo.game.creatures.Creature;
+import com.connor.demo.game.creatures.CreatureComparator;
+import com.connor.demo.game.creatures.Player;
+import com.connor.demo.game.creatures.Stats;
+import com.connor.demo.game.creatures.monsters.Monster;
+import com.connor.demo.game.creatures.monsters.MonsterFactory;
 
 import java.util.ArrayList;
 

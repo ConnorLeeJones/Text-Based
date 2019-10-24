@@ -1,4 +1,6 @@
-package com.connor.demo.models.creatures;
+package com.connor.demo.game.creatures;
+
+import com.connor.demo.game.creatures.Creature;
 
 public class Player extends Creature {
 

@@ -1,6 +1,6 @@
-package com.connor.demo.models.creatures.monsters.types;
+package com.connor.demo.game.creatures.monsters;
 
-import com.connor.demo.models.creatures.monsters.Monster;
+import com.connor.demo.game.creatures.monsters.Monster;
 
 public class Wolf extends Monster {
 

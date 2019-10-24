@@ -1,4 +1,4 @@
-package com.connor.demo.models.creatures.stats;
+package com.connor.demo.game.creatures;
 
 public enum Stats {
 
