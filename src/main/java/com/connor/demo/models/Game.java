@@ -1,40 +1,40 @@
 package com.connor.demo.models;
 
-import com.connor.demo.game.creatures.Player;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long gameId;
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "game_id", nullable = false)
     private UserProfile userProfile;
 
-    //private ArrayList<Player> players;
+
+    //@JsonManagedReference
+    @OneToMany
+    @JoinColumn(name = "player_id")
+    private List<Player> players;
 
 
-    public Game(UserProfile userProfile, ArrayList<Player> players) {
-        this.userProfile = userProfile;
-        //this.players = players;
-    }
 
     public Game() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getGameId() {
+        return gameId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setGameId(Long gameId) {
+        this.gameId = gameId;
     }
 
     public UserProfile getUserProfile() {
@@ -46,4 +46,11 @@ public class Game {
     }
 
 
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
 }

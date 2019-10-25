@@ -23,7 +23,7 @@ public class UserService {
     }
 
     public User findUserById(Long id){
-        return repository.findUserById(id);
+        return repository.findUserByUserId(id);
     }
 
     public User findUserByUsername(String username){return repository.findUserByUsername(username);}
