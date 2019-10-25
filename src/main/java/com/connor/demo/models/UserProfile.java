@@ -11,10 +11,10 @@ public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long profileId;
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "profile_id", nullable = false)
     private User user;
     @Email
     private String email;
@@ -28,12 +28,12 @@ public class UserProfile {
     public UserProfile(){}
 
 
-    public Long getId() {
-        return id;
+    public Long getProfileId() {
+        return profileId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProfileId(Long profileId) {
+        this.profileId = profileId;
     }
 
 

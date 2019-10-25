@@ -1,7 +1,7 @@
 package com.connor.demo.battles;
 
 import com.connor.demo.game.battle.Battle;
-import com.connor.demo.game.creatures.Player;
+import com.connor.demo.models.Player;
 import org.junit.Before;
 import org.junit.Test;
 

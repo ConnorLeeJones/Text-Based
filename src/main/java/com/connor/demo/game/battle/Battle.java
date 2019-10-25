@@ -3,7 +3,7 @@ package com.connor.demo.game.battle;
 import com.connor.demo.game.utilities.Dice;
 import com.connor.demo.game.creatures.Creature;
 import com.connor.demo.game.creatures.CreatureComparator;
-import com.connor.demo.game.creatures.Player;
+import com.connor.demo.models.Player;
 import com.connor.demo.game.creatures.Stats;
 import com.connor.demo.game.creatures.monsters.Monster;
 import com.connor.demo.game.creatures.monsters.MonsterFactory;

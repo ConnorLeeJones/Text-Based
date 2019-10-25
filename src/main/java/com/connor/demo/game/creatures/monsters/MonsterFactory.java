@@ -2,7 +2,7 @@ package com.connor.demo.game.creatures.monsters;
 
 import com.connor.demo.game.utilities.Dice;
 import com.connor.demo.game.creatures.Stats;
-import com.connor.demo.game.creatures.Player;
+import com.connor.demo.models.Player;
 
 import java.util.ArrayList;
 
