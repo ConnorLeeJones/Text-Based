@@ -1,11 +1,17 @@
-package com.connor.demo.game.creatures;
+package com.connor.demo.models;
 
+import com.connor.demo.game.creatures.StatCreator;
+import com.connor.demo.game.creatures.Stats;
 import com.connor.demo.game.spells.Spell;
 
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.HashSet;
 
+@MappedSuperclass
 public abstract class Creature {
+
+
 
     private String name;
     private HashMap<Stats, Integer> stats;
@@ -85,4 +91,14 @@ public abstract class Creature {
                 ", inventory=" + inventory +
                 '}';
     }
+
+
+    public HashSet<Spell> getSpellBook() {
+        return spellBook;
+    }
+
+    public void setSpellBook(HashSet<Spell> spellBook) {
+        this.spellBook = spellBook;
+    }
+
 }

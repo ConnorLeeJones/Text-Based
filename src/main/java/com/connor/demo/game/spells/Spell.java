@@ -1,7 +1,7 @@
 package com.connor.demo.game.spells;
 
 import com.connor.demo.game.creatures.Stats;
-import com.connor.demo.game.creatures.Creature;
+import com.connor.demo.models.Creature;
 
 import java.util.ArrayList;
 

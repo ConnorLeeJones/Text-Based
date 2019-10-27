@@ -1,5 +1,7 @@
 package com.connor.demo.game.creatures;
 
+import com.connor.demo.models.Creature;
+
 import java.util.Comparator;
 
 public class CreatureComparator implements Comparator<Creature> {
