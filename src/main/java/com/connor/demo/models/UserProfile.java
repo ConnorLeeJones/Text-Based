@@ -1,5 +1,6 @@
 package com.connor.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -12,7 +13,7 @@ public class UserProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long profileId;
-    @JsonIgnore
+    @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "profile_id", nullable = false)
     private User user;
@@ -21,11 +22,16 @@ public class UserProfile {
     private String firstName;
     private String lastName;
 
-    @JsonManagedReference
+    //@JsonManagedReference
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "userProfile")
     private Game game;
 
     public UserProfile(){}
+
+//    public UserProfile(Long profileId){
+//        this.profileId = profileId;
+//    }
+
 
 
     public Long getProfileId() {

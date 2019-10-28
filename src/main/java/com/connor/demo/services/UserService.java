@@ -1,6 +1,7 @@
 package com.connor.demo.services;
 
 import com.connor.demo.models.User;
+import com.connor.demo.models.UserProfile;
 import com.connor.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -11,6 +12,7 @@ public class UserService {
 
 
     private UserRepository repository;
+    private UserProfileService userProfileService;
 
 
     @Autowired
@@ -29,6 +31,12 @@ public class UserService {
     public User findUserByUsername(String username){return repository.findUserByUsername(username);}
 
     public User create(User user){
+//        User newUser = repository.save(user);
+//        UserProfile userProfile = this.userProfileService.create(new UserProfile(newUser.getUserId()));
+//        newUser.setUserProfile(userProfile);
+//        newUser.setPassword(encryptPassword(user.getPassword()));
+//        return repository.save(newUser);
+
         return repository.save(user);
     }
 
