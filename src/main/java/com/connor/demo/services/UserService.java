@@ -1,5 +1,6 @@
 package com.connor.demo.services;
 
+import com.connor.demo.models.Game;
 import com.connor.demo.models.User;
 import com.connor.demo.models.UserProfile;
 import com.connor.demo.repositories.UserRepository;
@@ -31,13 +32,15 @@ public class UserService {
     public User findUserByUsername(String username){return repository.findUserByUsername(username);}
 
     public User create(User user){
-//        User newUser = repository.save(user);
-//        UserProfile userProfile = this.userProfileService.create(new UserProfile(newUser.getUserId()));
-//        newUser.setUserProfile(userProfile);
-//        newUser.setPassword(encryptPassword(user.getPassword()));
-//        return repository.save(newUser);
+        User newUser = repository.save(user);
+        UserProfile userProfile = new UserProfile(newUser.getUserId());
+        Game game = new Game(newUser.getUserId());
+        userProfile.setGame(game);
+        newUser.setUserProfile(userProfile);
+        newUser.setPassword(encryptPassword(user.getPassword()));
+        return repository.save(newUser);
 
-        return repository.save(user);
+        //return repository.save(user);
     }
 
     public User login(User user){
