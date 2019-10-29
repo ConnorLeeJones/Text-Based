@@ -11,7 +11,7 @@ import java.util.List;
 public class Game {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long gameId;
 
     @JsonBackReference
@@ -27,8 +27,12 @@ public class Game {
 
 
 
-    public Game() {
+    public Game() {}
+
+    public Game(Long gameId) {
+        this.gameId = gameId;
     }
+
 
     public Long getGameId() {
         return gameId;

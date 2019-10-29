@@ -11,7 +11,6 @@ import javax.validation.constraints.Email;
 public class UserProfile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long profileId;
     @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY, optional = false)
@@ -28,9 +27,9 @@ public class UserProfile {
 
     public UserProfile(){}
 
-//    public UserProfile(Long profileId){
-//        this.profileId = profileId;
-//    }
+    public UserProfile(Long profileId){
+        this.profileId = profileId;
+    }
 
 
 
