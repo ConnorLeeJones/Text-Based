@@ -1,6 +1,7 @@
 package com.connor.demo.controllers;
 
 import com.connor.demo.models.Player;
+import com.connor.demo.models.PlayerDTO;
 import com.connor.demo.models.User;
 import com.connor.demo.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,9 @@ public class PlayerController {
     }
 
     @PostMapping
-    public ResponseEntity<Player> createPlayer(@RequestBody Player player, @RequestBody User user) {
+    public ResponseEntity<Player> createPlayer(@RequestBody PlayerDTO playerDTO) {
         try {
-            return new ResponseEntity<>(service.create(player.getName(), user.getUserProfile().getGame()), HttpStatus.CREATED);
+            return new ResponseEntity<>(service.create(playerDTO), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }

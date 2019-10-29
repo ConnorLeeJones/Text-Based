@@ -2,6 +2,7 @@ package com.connor.demo.services;
 
 import com.connor.demo.models.Game;
 import com.connor.demo.models.Player;
+import com.connor.demo.models.PlayerDTO;
 import com.connor.demo.repositories.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,9 @@ public class PlayerService {
     }
 
 
-    public Player create(String name, Game game){
-        Player player = new Player(name);
-        player.setGame_fk(game.getGameId());
+    public Player create(PlayerDTO playerDTO){
+        Player player = new Player(playerDTO.getName());
+        player.setGame_fk(playerDTO.getGameId());
         return repository.save(player);
     }
 
