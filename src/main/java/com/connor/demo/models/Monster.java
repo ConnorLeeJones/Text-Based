@@ -1,12 +1,20 @@
-package com.connor.demo.game.creatures.monsters;
+package com.connor.demo.models;
 
 import com.connor.demo.game.creatures.StatCreator;
 import com.connor.demo.game.creatures.Stats;
 import com.connor.demo.models.Creature;
 
+import javax.persistence.*;
 import java.util.HashMap;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Monster extends Creature {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long monster_id;
 
 
     public Monster() {}
@@ -23,4 +31,11 @@ public class Monster extends Creature {
         return StatCreator.newMonsterStats(level);
     }
 
+    public Long getMonster_id() {
+        return monster_id;
+    }
+
+    public void setMonster_id(Long monster_id) {
+        this.monster_id = monster_id;
+    }
 }

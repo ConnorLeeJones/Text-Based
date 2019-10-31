@@ -1,8 +1,16 @@
 package com.connor.demo.game.creatures.monsters;
 
-public class Hobgoblin extends Monster {
+import com.connor.demo.models.Monster;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@DiscriminatorValue("Hobgoblin")
+public class Hobgoblin extends Monster  implements Serializable {
 
     public Hobgoblin(String name, Integer level) {
         super(name, level);
     }
+
 }

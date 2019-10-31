@@ -1,16 +1,17 @@
 package com.connor.demo.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Player extends Creature {
+public class Player extends Creature  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long creature_id;
 
 
-    private Long game_fk;
+    private Long gameFk;
 
 
 
@@ -30,12 +31,12 @@ public class Player extends Creature {
         this.creature_id = creature_id;
     }
 
-    public Long getGame_fk() {
-        return game_fk;
+    public Long getGameFk() {
+        return gameFk;
     }
 
-    public void setGame_fk(Long game_fk) {
-        this.game_fk = game_fk;
+    public void setGameFk(Long gameFk) {
+        this.gameFk = gameFk;
     }
 
 }

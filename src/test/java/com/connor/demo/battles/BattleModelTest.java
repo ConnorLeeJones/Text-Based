@@ -1,13 +1,14 @@
 package com.connor.demo.battles;
 
-import com.connor.demo.game.battle.Battle;
+import com.connor.demo.models.Battle;
+import com.connor.demo.models.BattleModel;
 import com.connor.demo.models.Player;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class BattleTest {
+public class BattleModelTest {
 
     private ArrayList<Player> players;
     private Battle battle;

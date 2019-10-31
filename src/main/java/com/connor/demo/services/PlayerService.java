@@ -1,6 +1,5 @@
 package com.connor.demo.services;
 
-import com.connor.demo.models.Game;
 import com.connor.demo.models.Player;
 import com.connor.demo.models.PlayerDTO;
 import com.connor.demo.repositories.PlayerRepository;
@@ -23,10 +22,14 @@ public class PlayerService {
         return repository.findAll();
     }
 
+    public Iterable<Player> findByGameFk(Long game_fk){
+        return repository.findAllByGameFk(game_fk);
+    }
+
 
     public Player create(PlayerDTO playerDTO){
         Player player = new Player(playerDTO.getName());
-        player.setGame_fk(playerDTO.getGameId());
+        player.setGameFk(playerDTO.getGameId());
         return repository.save(player);
     }
 
