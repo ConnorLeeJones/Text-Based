@@ -1,10 +1,18 @@
 package com.connor.demo.game.creatures.monsters;
 
-import com.connor.demo.game.creatures.monsters.Monster;
+import com.connor.demo.models.Monster;
 
-public class Wolf extends Monster {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@DiscriminatorValue("Wolf")
+public class Wolf extends Monster  implements Serializable {
+
 
     public Wolf(String name, Integer level) {
         super(name, level);
     }
+
+
 }

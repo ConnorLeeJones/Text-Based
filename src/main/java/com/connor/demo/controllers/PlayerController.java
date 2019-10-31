@@ -27,6 +27,11 @@ public class PlayerController {
         return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/{gameFk}")
+    public ResponseEntity<Iterable<Player>> getPlayersByFk(@PathVariable Long gameFk) {
+        return new ResponseEntity<>(service.findByGameFk(gameFk), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Player> createPlayer(@RequestBody PlayerDTO playerDTO) {
         try {

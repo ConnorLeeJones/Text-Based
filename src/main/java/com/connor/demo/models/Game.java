@@ -22,7 +22,7 @@ public class Game {
 
     //@JsonManagedReference
     @OneToMany
-    @JoinColumn(name = "game_fk")
+    @JoinColumn(name = "gameFk")
     private List<Player> players;
 
 
