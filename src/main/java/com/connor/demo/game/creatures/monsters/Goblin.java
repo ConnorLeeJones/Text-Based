@@ -5,9 +5,9 @@ import com.connor.demo.models.Monster;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@DiscriminatorValue("Goblin")
-public class Goblin extends Monster implements Serializable {
+//@Entity
+//@DiscriminatorValue("Goblin")
+public class Goblin extends Monster  {
 
 
 

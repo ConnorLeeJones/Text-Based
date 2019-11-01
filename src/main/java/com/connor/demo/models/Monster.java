@@ -5,11 +5,12 @@ import com.connor.demo.game.creatures.Stats;
 import com.connor.demo.models.Creature;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashMap;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Monster extends Creature {
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Monster extends Creature implements Serializable {
 
 
     @Id
@@ -17,7 +18,7 @@ public class Monster extends Creature {
     private Long monster_id;
 
 
-    public Monster() {}
+    //public Monster() {}
 
     public Monster(String name, Integer level) {
         super(name, level);
