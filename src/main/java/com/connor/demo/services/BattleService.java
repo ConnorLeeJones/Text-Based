@@ -33,7 +33,7 @@ public class BattleService {
         return repository.findAll();
     }
 
-    public BattleModel findUserProfileById(Long id){
+    public BattleModel findBattleById(Long id){
         return repository.findById(id).get();
     }
 
@@ -42,7 +42,7 @@ public class BattleService {
         System.out.println(userId);
         ArrayList<Player> players = (ArrayList<Player>) playerRepository.findAllByGameFk(userId);
         System.out.println(players);
-        BattleModel battleModel = new BattleModel(playerRepository.findAllByGameFk(userId));
+        BattleModel battleModel = new BattleModel(playerRepository.findAllByGameFk(userId), userId);
         return repository.save(battleModel);
     }
 

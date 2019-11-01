@@ -23,15 +23,17 @@ public class BattleModel {
 
     public BattleModel(){}
 
-    public BattleModel(Iterable<Player> players){
+    public BattleModel(Iterable<Player> players, Long userId){
         this.players = (ArrayList<Player>) players;
         this.monsters = makeMonsters();
+        //this.battleId = userId;
         setUpCreatures();
     }
 
     public BattleModel(User user){
         this.players = (ArrayList<Player>) user.getUserProfile().getGame().getPlayers();
         this.monsters = makeMonsters();
+        this.battleId = user.getUserId();
         setUpCreatures();
     }
 
