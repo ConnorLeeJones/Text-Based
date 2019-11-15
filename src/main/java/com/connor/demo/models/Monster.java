@@ -9,16 +9,17 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Monster extends Creature implements Serializable {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("Monster")
+public class Monster extends Creature {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long monster_id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long monster_id;
 
 
-    //public Monster() {}
+    public Monster() { super(); }
 
     public Monster(String name, Integer level) {
         super(name, level);
@@ -32,11 +33,11 @@ public class Monster extends Creature implements Serializable {
         return StatCreator.newMonsterStats(level);
     }
 
-    public Long getMonster_id() {
-        return monster_id;
-    }
-
-    public void setMonster_id(Long monster_id) {
-        this.monster_id = monster_id;
-    }
+//    public Long getMonster_id() {
+//        return monster_id;
+//    }
+//
+//    public void setMonster_id(Long monster_id) {
+//        this.monster_id = monster_id;
+//    }
 }

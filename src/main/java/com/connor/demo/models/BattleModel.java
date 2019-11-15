@@ -4,29 +4,35 @@ import com.connor.demo.game.utilities.Dice;
 import com.connor.demo.game.creatures.CreatureComparator;
 import com.connor.demo.game.creatures.monsters.MonsterFactory;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class BattleModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long battleId;
-    private ArrayList<Player> players;
-    private ArrayList<Monster> monsters;
-    private ArrayList<Creature> creatures;
+    @OneToMany(targetEntity=Creature.class)
+    @JoinColumn(name = "gameFk")
+    private List<Player> players;
+    @OneToMany(targetEntity=Creature.class)
+    @JoinColumn(name = "gameFk")
+    private List<Monster> monsters;
+    @OneToMany(targetEntity=Creature.class)
+    @JoinColumn(name = "gameFk")
+    private List<Creature> creatures;
     //private Dice d10 = new Dice(10);
+    //private static final long serialVersionUID = -7377522010549726139L;
+
 
     public BattleModel(){}
 
     public BattleModel(Iterable<Player> players, Long userId){
         this.players = (ArrayList<Player>) players;
         this.monsters = makeMonsters();
-        //this.battleId = userId;
+        this.battleId = userId;
         setUpCreatures();
     }
 
@@ -59,7 +65,7 @@ public class BattleModel {
 
 
 
-    public ArrayList<Player> getPlayers() {
+    public List<Player> getPlayers() {
         return players;
     }
 
@@ -67,7 +73,7 @@ public class BattleModel {
         this.players = players;
     }
 
-    public ArrayList<Monster> getMonsters() {
+    public List<Monster> getMonsters() {
         return monsters;
     }
 
@@ -75,7 +81,7 @@ public class BattleModel {
         this.monsters = monsters;
     }
 
-    public ArrayList<Creature> getCreatures() {
+    public List<Creature> getCreatures() {
         return creatures;
     }
 

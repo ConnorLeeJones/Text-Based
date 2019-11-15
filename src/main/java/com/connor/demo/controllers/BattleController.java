@@ -1,9 +1,6 @@
 package com.connor.demo.controllers;
 
-import com.connor.demo.models.BattleModel;
-import com.connor.demo.models.Player;
-import com.connor.demo.models.PlayerDTO;
-import com.connor.demo.models.User;
+import com.connor.demo.models.*;
 import com.connor.demo.repositories.PlayerRepository;
 import com.connor.demo.services.BattleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,14 +39,28 @@ public class BattleController {
 //        }
 //    }
 
+    @PutMapping
+    public ResponseEntity<BattleModel> battleAttack(@RequestBody AttackDTO attackDTO) {
+
+        return new ResponseEntity<>(service.dealDamage(attackDTO), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<BattleModel> createBattleModel(@RequestBody PlayerDTO playerDTO) {
 
-            return new ResponseEntity<>(service.create(playerDTO.getGameId()), HttpStatus.CREATED);
-        }
+        return new ResponseEntity<>(service.create(playerDTO.getGameId()), HttpStatus.CREATED);
+    }
+//        catch (Exception e) {
+//            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+//        }
+    //}
+
+
 //        catch (Exception e) {
 //            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 //        }
     //}
 
 }
+
+

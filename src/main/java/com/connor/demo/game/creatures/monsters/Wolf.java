@@ -5,8 +5,8 @@ import com.connor.demo.models.Monster;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//@Entity
-//@DiscriminatorValue("Wolf")
+@Entity
+@DiscriminatorValue("Wolf")
 public class Wolf extends Monster {
 
 
@@ -15,4 +15,7 @@ public class Wolf extends Monster {
     }
 
 
+    public Wolf() {
+        super();
+    }
 }
