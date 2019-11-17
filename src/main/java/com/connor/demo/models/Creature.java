@@ -26,7 +26,9 @@ public abstract class Creature {
     private HashMap<Stats, Integer> stats;
     private HashMap<String, Integer> inventory;
     private HashSet<Spell> spellBook;
-    private Long gameFk;
+
+
+
 
     public Creature(){
         this.name = "NPC";
@@ -63,6 +65,9 @@ public abstract class Creature {
         this.stats.merge(stat, value, Integer::sum);
     }
 
+    public void setStat(Stats stat, Integer value){
+        this.stats.put(stat, value);
+    }
 
     public String getName() {
         return name;
@@ -119,11 +124,13 @@ public abstract class Creature {
         this.creature_id = creature_id;
     }
 
-    public Long getGameFk() {
-        return gameFk;
-    }
 
-    public void setGameFk(Long gameFk) {
-        this.gameFk = gameFk;
-    }
+//    public Long getGameFk() {
+//        return gameFk;
+//    }
+//
+//    public void setGameFk(Long gameFk) {
+//        this.gameFk = gameFk;
+//    }
+
 }

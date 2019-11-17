@@ -50,16 +50,11 @@ public class BattleController {
 
         return new ResponseEntity<>(service.create(playerDTO.getGameId()), HttpStatus.CREATED);
     }
-//        catch (Exception e) {
-//            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-//        }
-    //}
 
-
-//        catch (Exception e) {
-//            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-//        }
-    //}
+    @GetMapping("/{id}")
+    public ResponseEntity<BattleModel> getPlayersByFk(@PathVariable Long id) {
+        return new ResponseEntity<>(service.findBattleById(id), HttpStatus.OK);
+    }
 
 }
 

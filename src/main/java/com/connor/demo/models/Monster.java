@@ -14,9 +14,22 @@ import java.util.HashMap;
 public class Monster extends Creature {
 
 
+
+    private Long battleFk;
+
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long monster_id;
+
+    public Long getBattleFk() {
+        return battleFk;
+    }
+
+    public void setBattleFk(Long battleFk) {
+        this.battleFk = battleFk;
+    }
+
+
 
 
     public Monster() { super(); }
@@ -32,6 +45,15 @@ public class Monster extends Creature {
     private HashMap<Stats, Integer> initStats(Integer level){
         return StatCreator.newMonsterStats(level);
     }
+
+//    public Long getBattleFk() {
+//
+//        return battleFk;
+//    }
+//
+//    public void setBattleFk(Long battleFk) {
+//        this.battleFk = battleFk;
+//    }
 
 //    public Long getMonster_id() {
 //        return monster_id;

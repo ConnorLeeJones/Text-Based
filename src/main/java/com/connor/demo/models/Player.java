@@ -12,6 +12,8 @@ public class Player extends Creature {
 //    private Long creature_id;
 
 
+    private Long gameFk;
+
 
 
 
@@ -23,6 +25,23 @@ public class Player extends Creature {
     public Player(String name){
         super(name);
     }
+
+    public Long getGameFk() {
+        return gameFk;
+    }
+
+
+    public void setGameFk(Long gameFk) {
+        this.gameFk = gameFk;
+    }
+
+//    public Long getGameFk() {
+//        return gameFk;
+//    }
+//
+//    public void setGameFk(Long gameFk) {
+//        this.gameFk = gameFk;
+//    }
 
 //    public Long getCreature_id() {
 //        return creature_id;
