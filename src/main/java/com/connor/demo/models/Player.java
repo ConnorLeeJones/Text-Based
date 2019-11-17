@@ -4,14 +4,17 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Player extends Creature  implements Serializable {
+@DiscriminatorValue("Player")
+public class Player extends Creature {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long creature_id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long creature_id;
 
 
     private Long gameFk;
+
+
 
 
 
@@ -23,20 +26,31 @@ public class Player extends Creature  implements Serializable {
         super(name);
     }
 
-    public Long getCreature_id() {
-        return creature_id;
-    }
-
-    public void setCreature_id(Long creature_id) {
-        this.creature_id = creature_id;
-    }
-
     public Long getGameFk() {
         return gameFk;
     }
 
+
     public void setGameFk(Long gameFk) {
         this.gameFk = gameFk;
     }
+
+//    public Long getGameFk() {
+//        return gameFk;
+//    }
+//
+//    public void setGameFk(Long gameFk) {
+//        this.gameFk = gameFk;
+//    }
+
+//    public Long getCreature_id() {
+//        return creature_id;
+//    }
+//
+//    public void setCreature_id(Long creature_id) {
+//        this.creature_id = creature_id;
+//    }
+
+
 
 }

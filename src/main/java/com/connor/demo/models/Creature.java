@@ -5,18 +5,30 @@ import com.connor.demo.game.creatures.Stats;
 import com.connor.demo.game.spells.Spell;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 
-@MappedSuperclass
+//@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Creature {
 
+    //private static final long serialVersionUID = -7377522010549726139L;
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long creature_id;
 
 
     private String name;
     private HashMap<Stats, Integer> stats;
     private HashMap<String, Integer> inventory;
     private HashSet<Spell> spellBook;
+
+
+
 
     public Creature(){
         this.name = "NPC";
@@ -53,6 +65,9 @@ public abstract class Creature {
         this.stats.merge(stat, value, Integer::sum);
     }
 
+    public void setStat(Stats stat, Integer value){
+        this.stats.put(stat, value);
+    }
 
     public String getName() {
         return name;
@@ -100,5 +115,22 @@ public abstract class Creature {
     public void setSpellBook(HashSet<Spell> spellBook) {
         this.spellBook = spellBook;
     }
+
+    public Long getCreature_id() {
+        return creature_id;
+    }
+
+    public void setCreature_id(Long creature_id) {
+        this.creature_id = creature_id;
+    }
+
+
+//    public Long getGameFk() {
+//        return gameFk;
+//    }
+//
+//    public void setGameFk(Long gameFk) {
+//        this.gameFk = gameFk;
+//    }
 
 }

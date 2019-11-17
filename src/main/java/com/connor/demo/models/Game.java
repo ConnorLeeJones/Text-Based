@@ -21,7 +21,7 @@ public class Game {
 
 
     //@JsonManagedReference
-    @OneToMany
+    @OneToMany(targetEntity=Player.class)
     @JoinColumn(name = "gameFk")
     private List<Player> players;
 
