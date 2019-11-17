@@ -140,12 +140,15 @@ public class BattleService {
                 mons.add(monster);
             }
         }
+        ArrayList<Player> players = new ArrayList<>();
         for (Player player : battleModel.getPlayers()){
             if (player.getStat(Stats.HP) <= 0){
                 player.setStat(Stats.HP, 0);
             }
+            players.add(player);
         }
         battleModel.setMonsters(mons);
+        battleModel.setPlayers(players);
 
         return repository.save(battleModel);
     }
