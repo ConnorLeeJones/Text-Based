@@ -22,6 +22,18 @@ public class PlayerService {
         return repository.findAll();
     }
 
+    public Player findOne(Long id){
+        return repository.findById(id).orElse(null);
+    }
+
+
+    public Player update(Player player){
+        Player ogPlayer = repository.findById(player.getCreature_id()).orElse(null);
+        assert ogPlayer != null;
+        ogPlayer.setStats(player.getStats());
+        return repository.save(ogPlayer);
+    }
+
     public Iterable<Player> findByGameFk(Long game_fk){
         return repository.findAllByGameFk(game_fk);
     }

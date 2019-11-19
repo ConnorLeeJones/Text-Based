@@ -32,6 +32,16 @@ public class PlayerController {
         return new ResponseEntity<>(service.findByGameFk(gameFk), HttpStatus.OK);
     }
 
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Player> getPlayerById(@PathVariable Long id) {
+        return new ResponseEntity<>(service.findOne(id), HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<Player> updatePlayer(@RequestBody Player player) {
+        return new ResponseEntity<>(service.update(player), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Player> createPlayer(@RequestBody PlayerDTO playerDTO) {
         try {
